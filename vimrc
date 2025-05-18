@@ -15,9 +15,6 @@ set termguicolors
 set list
 set listchars=tab:>-,trail:·,nbsp:·
 
-" === Disable Mouse ===
-set mouse=
-
 " === Key Mappings ===
 nnoremap <silent> <leader>h :nohlsearch<CR>
 nnoremap <space> za
