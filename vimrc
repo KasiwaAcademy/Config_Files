@@ -69,6 +69,9 @@ Plug 'vim-airline/vim-airline'
 Plug 'ryanoasis/vim-devicons'
 Plug 'Yggdroot/indentLine'
 
+" Vimwiki
+Plug 'vimwiki/vimwiki'
+
 call plug#end()
 
 " === Colorscheme ===
@@ -98,6 +101,8 @@ nmap <leader>hp <Plug>(GitGutterPreviewHunk)
 let g:ale_fixers = {'python': ['black', 'isort']}
 let g:ale_linters = {'python': ['flake8', 'mypy']}
 let g:ale_fix_on_save = 1
+let g:ale_hover_to_preview = 1
+let g:ale_floating_preview = 0
 
 function! DetectVirtualEnv()
     let l:venv = findfile('pyproject.toml', '.;')
@@ -161,6 +166,14 @@ nnoremap <silent> gd :call CocAction('jumpDefinition')<CR>
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<CR>"
+
+" === Vimwiki Configuration ===
+let g:vimwiki_list = [{
+      \ 'path': '~/.vimwiki/',
+      \ 'syntax': 'markdown', 
+      \ 'ext': '.md'
+      \ }]
+let g:vimwiki_global_ext = 0
 
 " Format on save for web files
 autocmd BufWritePre *.html,*.css,*.js,*.jsx,*.ts,*.tsx :call CocAction('format')
